@@ -2,35 +2,55 @@
 #include<stdlib.h>
 
 
+const int table[16] = { 48,49,50,51,52,53,54,55,56,57,//0~9
+				65,66,67,68,69,70 };//A~F
+
+long long int HexToDec(char *in, int *Dec,int j);
+int Pow(int X,int a);
 int main()
 {
 	//16進制%X 10進制%d 8進制%o 2進制10->2
 	//16轉10
-	int i, j, de;
+	int i, j;
+	unsigned long long int sum=0;
+	char in[17] = { 0 };
+	int Dec[17] = { 0 };
 
-	printf("請輸入欲輸入的數值之位數：");
-	scanf("%d", &i);
+	
+	printf("請輸入欲轉換的數(至多16位數A~F大寫):");
+	scanf("%s", &in);
 
-	char X[i + 1];
-	printf("請輸入欲轉換的數(%d位數):", i);
-	scanf("%s", &X);                  //0~9 = 48~57   A~F = 65~70  a~f = 97~102
+	for (j = 0; in[j] != '\0'; j++);//j位數
+	printf("%s(%d位數)的十進制為\n",in,j);
 
-	for (j = 0; j < i; j++)
-	{
-		printf("%d  ", X[j]);
-	}
+	sum = HexToDec(in, Dec,j);
+	
+	printf("\n\n%lld",sum);
 	system("pause");
 	return 0;
 }
 
-int HexToDec(int)
+int Pow(int X, int a)
 {
-	char X[i + 1];
-	printf("請輸入欲轉換的數(%d位數):", i);
-	scanf("%s", &X);                  //0~9 = 48~57   A~F = 65~70  a~f = 97~102
+	if (a == 0)
+		return 1;
+	else
+		return X * Pow(X, a - 1);
+}
 
-	for (j = 0; j < i; j++)
+long long int HexToDec(char *in, int *Dec,int j)
+{
+	long long int s = 0;
+	int i,f;
+	for (i = 0; i <= j; i++)
 	{
-		printf("%d  ", X[j]);
+		for (f = 0; f < 16; f++)
+			if (*(in + i) == table[f])
+				*(Dec + i) = f;
 	}
+
+	for (i = 0; i < j; i++)
+		s = s + *(Dec+i) * Pow(16, j - i - 1);
+
+	return s;
 }
