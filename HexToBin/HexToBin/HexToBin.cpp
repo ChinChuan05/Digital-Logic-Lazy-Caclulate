@@ -37,7 +37,7 @@ int main()
 		Bin[63 - k] = temp[k];
 	for (k = 64 - i; k < 64; k++)
 		printf("%d", Bin[k]);
-	printf("(%d位數\n\n)", i);
+	printf("(%d位數)\n\n", i);
 
 
 	system("pause");

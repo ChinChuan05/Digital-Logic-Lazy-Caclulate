@@ -1,5 +1,6 @@
 ﻿  DecToBin.c
-d:\學業\作業\程式\專題\digital-logic-lazy-caclulate\dectobin\dectobin\dectobin\dectobin.c(22): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\學業\作業\程式\專題\digital-logic-lazy-caclulate\dectobin\dectobin\dectobin\dectobin.c(17): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 請參閱 'scanf' 的宣告
-d:\學業\作業\程式\專題\digital-logic-lazy-caclulate\dectobin\dectobin\dectobin\dectobin.c(82): warning C4715: 'findBinDigits': 不是所有控制路徑都傳回值
+d:\學業\作業\程式\專題\digital-logic-lazy-caclulate\dectobin\dectobin\dectobin\dectobin.c(10): warning C4101: 'j': 未參考的區域變數
+d:\學業\作業\程式\專題\digital-logic-lazy-caclulate\dectobin\dectobin\dectobin\dectobin.c(58): warning C4715: 'findBinDigits': 不是所有控制路徑都傳回值
   DecToBin.vcxproj -> D:\學業\作業\程式\專題\Digital-Logic-Lazy-Caclulate\DecToBin\DecToBin\Debug\DecToBin.exe
