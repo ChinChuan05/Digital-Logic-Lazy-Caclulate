@@ -10,7 +10,7 @@ unsigned long long int Pow(unsigned long long int X, int a);
 int findBinDigits(unsigned long long int s);
 int main()
 {
-	int i,j,k;
+	int i, j, k;
 	unsigned long long int sum = 0;
 	char in[17] = { 0 };
 	int Hec[17] = { 0 };
@@ -18,14 +18,14 @@ int main()
 	unsigned int temp[64] = { 0 };
 
 
- 	printf("叫块饼锣传计(16计A~F糶):");
+	printf("叫块饼锣传计(16计A~F糶):");
 	scanf("%s", &in);
 
 	for (j = 0; in[j] != '\0'; j++);//j计
 	printf("0X%s(%d计)秈\n", in, j);
 
 	sum = HexToDec(in, Hec, j);
-	
+
 	i = findBinDigits(sum);//i秈计
 
 	for (k = 0; k < i; k++)
@@ -34,10 +34,10 @@ int main()
 		sum = sum / 2;
 	}
 	for (k = 0; k < 64; k++)
-		Bin[63-k] = temp[k];
-	for (k = 64-i; k < 64; k++)
+		Bin[63 - k] = temp[k];
+	for (k = 64 - i; k < 64; k++)
 		printf("%d", Bin[k]);
-	printf("(%d计)",i);
+	printf("(%d计\n\n)", i);
 
 
 	system("pause");

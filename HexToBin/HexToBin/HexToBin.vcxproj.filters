@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DecToBin.c">
-      <Filter>資源檔</Filter>
+    <ClCompile Include="HexToBin.cpp">
+      <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
