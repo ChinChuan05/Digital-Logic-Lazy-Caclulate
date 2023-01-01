@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 int x, y, mode, result;
 int rota_shif(int num, int n, int mode);
 char name[4][20] = {{"shift left"}, {"shift right"}, {"rotation left"}, {"rotation right"}};
