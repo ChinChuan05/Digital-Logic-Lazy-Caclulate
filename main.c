@@ -1,6 +1,3 @@
-//Version 5.03
-//更新：修復多處 Bug，測試穩定版
-//Created by Es1chUb.Jyan9@gmail.com
 //todo:
 //1.效能:MultiplyOut 表首 Node 加入排序
 //2.效能:清除內存泄漏

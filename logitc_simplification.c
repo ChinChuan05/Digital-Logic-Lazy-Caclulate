@@ -3,36 +3,55 @@
 #include <stdbool.h>
 #include <string.h>
 
-int boolean_sigma[16] = {1, 5, 7, 9}; //ex. sigma(2, 5, 7, 9, 15)
+char boolean_sigma[16][5] = {"0000", "0100", "0011", "1100", "1111", "0101"}; //四位數字表ABCD 1:正 0:反向
 
-int simplification(int sigma[]);  //使用SOP式
+int simplification(char sigma[16][5]);  //回傳SOP式
 
 int main(){
-    printf("test");
     simplification(boolean_sigma);
 }
 
-int  simplification(int sigma[]){
-    printf("test");
-    char num_type[5][12][4] = {""};
-    char str[4] = {""};
-    int one, index;
-    
+int simplification(char sigma[16][5]){
+    int one = 0, num;
+    int flag[5] = {0, 0, 0, 0, 0};
+    char* form[5][10] = {NULL};
+
     for(int i=0; i<16; i++){
         one = 0;
-        index = 0;
-        printf("%d", sigma[i]);
-        for(int j=sigma[i]; j>=0; j/=2){
-            if(j % 2 != 0){
+        if(sigma[i][0] == '\0') break;
+        for(int j=0; j<4; j++){
+            num = (int)sigma[i][j] - 48;
+            printf("%d", num);
+            if(num == 1){
                 one++;
-                strcat(str, "1");
-            }
-            else{
-                strcat(str, "0");
             }
         }
-        printf("%s", str);
+        printf("\n\tone: %d\n\t", one);
+        
+        //printf("%c", sigma[i][k]);
+        form[one][flag[one]] = &sigma[i][0];
+        
+        printf("%c", *form[one][flag[one]]);
+        printf("%c", *(form[one][flag[one]]+1));
+        printf("%c", *(form[one][flag[one]]+2));
+        printf("%c", *(form[one][flag[one]]+3));
+        printf("\n\n");
+        
+        flag[one]++;
+    }
+    
+   
+    for(int i=0; i<5; i++){
+        printf("%d個1的: ", i);
+        for(int j=0; j<20;j++){
+            if(form[i][j] != 0x0){
+                printf("%c", *form[i][j]);
+                printf("%c", *(form[i][j]+1));
+                printf("%c", *(form[i][j]+2));
+                printf("%c, ", *(form[i][j]+3));
+            }
+        }
         printf("\n");
-        //num_type[one][index] = str;
-    }return 0;
+    }
+    return 0;
 }
