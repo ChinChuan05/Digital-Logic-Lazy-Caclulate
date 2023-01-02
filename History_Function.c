@@ -11,11 +11,10 @@ void historyIn_Simplification() { //Way to input simplification result to histor
     Pointer = fopen("../Digital-Logic-Lazy-Caclulate/History_Simplification.txt", "a");
 }
 
-void historyDeletionMenu() {
-    FILE *Pointer;
+void historyDeletionMenu() { //Menu for deleting history
     int input;
     char inputYesNo;
-    do {
+    do { //Input method with cancel function
         printf("Input:\n1 to delete conversion history\n2 to delete simplification history\n[Type -1 to end]\n|? - ");
         scanf("%d", &input);
         if (input == -1) {
@@ -23,7 +22,7 @@ void historyDeletionMenu() {
             return 0;
         }
         printf("\n");
-    } while ((input < 1) || (input > 2)); //Input method with cancel function
+    } while ((input < 1) || (input > 2));
 
     switch(input) {
     case 1:
@@ -32,9 +31,9 @@ void historyDeletionMenu() {
             scanf(" %c", &inputYesNo);
         } while ((inputYesNo != 'y') && (inputYesNo != 'Y') && (inputYesNo != 'n') && (inputYesNo != 'N'));
 
-        if ((inputYesNo == 'y') || (inputYesNo == 'Y')) {
+        if ((inputYesNo == 'y') || (inputYesNo == 'Y')) { //Delete function by opening with write function and closing
             fclose(fopen("../Digital-Logic-Lazy-Caclulate/History_Conversion.txt", "w"));
-            printf("History deleted!\n");
+            printf("\nHistory deleted!\n\n");
         }
         else
             break;
@@ -47,18 +46,21 @@ void historyDeletionMenu() {
             scanf(" %c", &inputYesNo);
         } while ((inputYesNo != 'y') && (inputYesNo != 'Y') && (inputYesNo != 'n') && (inputYesNo != 'N'));
 
-        if ((inputYesNo == 'y') || (inputYesNo == 'Y')) {
+        if ((inputYesNo == 'y') || (inputYesNo == 'Y')) { //Delete function by opening with write function and closing
             fclose(fopen("../Digital-Logic-Lazy-Caclulate/History_Simplification.txt", "w"));
-            printf("History deleted!\n");
+            printf("\nHistory deleted!\n\n");
         }
         else
             break;
 
         break;
     }
+
+    system("pause");
+    return 0;
 }
 
-void historyDisplayMenu() {
+void historyDisplayMenu() { //Display menu for history
     int input;
 
     do {
@@ -80,6 +82,9 @@ void historyDisplayMenu() {
         historyDisplaySimplification();
         break;
     }
+
+    system("pause");
+    return 0;
 }
 
 void historyDisplayConversion() {
@@ -97,6 +102,7 @@ void historyDisplayConversion() {
     character = fgetc(Pointer);
     if (character == EOF) { //File is empty, end reading
         printf("History is empty!\n\n");
+        fclose(Pointer);
         system("pause");
         return 0;
     }
@@ -129,6 +135,7 @@ void historyDisplaySimplification () {
     character = fgetc(Pointer);
     if (character == EOF) { //File is empty, end reading
         printf("History is empty!\n\n");
+        fclose(Pointer);
         system("pause");
         return 0;
     }
@@ -146,7 +153,7 @@ void historyDisplaySimplification () {
 }
 
 int main() {
-    //historyDeletionMenu();
+    historyDeletionMenu();
     //historyDisplayMenu();
     //historyDisplayConversion();
     //historyDisplaySimplification();
