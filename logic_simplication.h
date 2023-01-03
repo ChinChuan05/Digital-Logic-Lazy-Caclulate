@@ -3,8 +3,8 @@
 //2.效能:清除內存泄漏
 //3.效能:新增:支援多輸出函數化簡
 
-#include "mccluskey.h"
-#include "petrick.h"
+#include "./mccluskey.h"
+#include "./petrick.h"
 
 int simplication(void){
 
