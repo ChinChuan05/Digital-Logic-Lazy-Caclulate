@@ -1,0 +1,4 @@
+Type   : Quick Flip
+Input  : 12345
+Output : 54321
+
