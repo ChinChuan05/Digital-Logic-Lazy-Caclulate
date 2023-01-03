@@ -44,13 +44,13 @@ unsigned long long int BinToDec(int* B, char* t, int* i)
 	int regit[64] = { 0 };
 	unsigned long long int sum = 0;
 
-	for (j = 0; j < 64; j++)//Bin為排列好的
+	for (j = 0; j < 64; j++)//Bin為01的形式
 		if (*(t + j) == 48)
 			regit[j] = 0;
 		else if(*(t + j) == 49)
 			regit[j] = 1;
 
-	for (j = 0; j < 64; j++)
+	for (j = 63; j < 0; j--)
 		if (judge == 0)
 		{
 			if (*(B + j) == 1)
