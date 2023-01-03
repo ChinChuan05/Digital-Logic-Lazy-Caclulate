@@ -1,9 +1,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void historyIn_Conversion() { //Way to input conversion result to history
+// Copy paste to main function
+// #include "../Digital-Logic-Lazy-Caclulate/history.h"
+
+//  Existing functions
+//historyDeletionMenu();
+//historyDisplayMenu();
+//historyDisplayConversion();
+//historyDisplaySimplification();
+
+void historyIn_Conversion(char Type[100], unsigned long long int Input, unsigned long long int Output) { //Way to input conversion result to history
     FILE *Pointer;
     Pointer = fopen("../Digital-Logic-Lazy-Caclulate/History_Conversion.txt", "a");
+    fprintf(Pointer, "Type   : %s\n", Type);
+    fprintf(Pointer, "Input  : %lld\n", Input);
+    fprintf(Pointer, "Output : %lld\n\n", Output);
+    fclose(Pointer);
+    return 0;
 }
 
 void historyIn_Simplification() { //Way to input simplification result to history
@@ -27,13 +41,15 @@ void historyDeletionMenu() { //Menu for deleting history
     switch(input) {
     case 1:
         do {
-            printf("\nAre you sure you want to delete your conversion history? [y/n]\n|? - ");
+            printf("Are you sure you want to delete your conversion history? [y/n]\n|? - ");
             scanf(" %c", &inputYesNo);
+            printf("\n");
         } while ((inputYesNo != 'y') && (inputYesNo != 'Y') && (inputYesNo != 'n') && (inputYesNo != 'N'));
 
         if ((inputYesNo == 'y') || (inputYesNo == 'Y')) { //Delete function by opening with write function and closing
             fclose(fopen("../Digital-Logic-Lazy-Caclulate/History_Conversion.txt", "w"));
-            printf("\nHistory deleted!\n\n");
+            printf("History deleted!\n\n");
+            system("pause");
         }
         else
             break;
@@ -49,6 +65,7 @@ void historyDeletionMenu() { //Menu for deleting history
         if ((inputYesNo == 'y') || (inputYesNo == 'Y')) { //Delete function by opening with write function and closing
             fclose(fopen("../Digital-Logic-Lazy-Caclulate/History_Simplification.txt", "w"));
             printf("\nHistory deleted!\n\n");
+            system("pause");
         }
         else
             break;
@@ -56,7 +73,6 @@ void historyDeletionMenu() { //Menu for deleting history
         break;
     }
 
-    system("pause");
     return 0;
 }
 
@@ -149,15 +165,5 @@ void historyDisplaySimplification () {
     fclose(Pointer);
 
     system("pause");
-    return 0;
-}
-
-int main() {
-    historyDeletionMenu();
-    //historyDisplayMenu();
-    //historyDisplayConversion();
-    //historyDisplaySimplification();
-
-    system ("pause");
     return 0;
 }
