@@ -1,0 +1,9 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "./caculate/logic_operate.h"
+#include "./caculate/logic_simplication.h"
+#include "./caculate/shift_rotation.h"
+#include "./transfer/DecToBin.h"
+#include "./transfer/HexToDec.h"
+#include "./transfer/HexToBin.h"
+//#include "./history/history.h"
