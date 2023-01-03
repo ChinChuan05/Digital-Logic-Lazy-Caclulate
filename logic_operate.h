@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-unsigned int x = 0x00, y = 0x00, result;
+//unsigned int x = 0x00, y = 0x00, result;
 int opnd;
-char operand[6][5] = {{"and"}, {"or"}, {"nand"}, {"nor"}, {"xor"}, {"nxor"}};
+//char operand[6][5] = {{"and"}, {"or"}, {"nand"}, {"nor"}, {"xor"}, {"nxor"}};
 
 //使用16進制進行輸入
-int logic_calculate(char x, char y, int operand){ 
+int logic_calculate(int x, int y, int operand){ 
     switch(operand){
         case 1:
             return x & y;
@@ -37,7 +37,7 @@ int logic_calculate(char x, char y, int operand){
     }
 }
 
-
+/*
 int main(){
     
     printf("Please input the number(hex) X, Y: ");
@@ -46,12 +46,12 @@ int main(){
     scanf("%d", &opnd);
     result = logic_calculate(x, y, opnd);
     printf("\n%x %s %x = 0x%x\n", x, operand[opnd-1], y, result);
-/*
+
     for(int s=1; s<=6; s++){
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++)
                 printf("(%d) %d, %d = %d\n", s, i, j, logic_calculate(i, j, s));
             }
         }
-    }*/
-}
+    }
+}*/

@@ -6,6 +6,7 @@ int x, y, mode, result;
 int rota_shif(int num, int n, int mode);
 char name[4][20] = {{"shift left"}, {"shift right"}, {"rotation left"}, {"rotation right"}};
 
+/*
 int main(){
     printf("Please input the operand (1)shift left (2)shift right (3)rotaion left (4)rotation right: ");
     scanf("%d", &mode);
@@ -14,7 +15,7 @@ int main(){
 
     result = rota_shif(x, y, mode);
     printf("0x%x %s %dtimes = 0x%x\n", x, name[mode-1], y, result);
-}
+}*/
 
 int rota_shif(int num, int n, int mode){
     switch(mode){
