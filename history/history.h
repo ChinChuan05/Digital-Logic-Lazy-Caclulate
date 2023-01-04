@@ -5,6 +5,8 @@
 // #include "../Digital-Logic-Lazy-Caclulate/history.h"
 
 //  Existing functions
+//historyIn_Conversion() - Put inside Conversion function, with format("Type of conversion", Input, Output)
+//historyIn_Simplification() - Put inside Conversion function, with format("Type", Input, Output)
 //historyDeletionMenu();
 //historyDisplayMenu();
 //historyDisplayConversion();
@@ -12,16 +14,20 @@
 
 void historyIn_Conversion(char Type[100], unsigned long long int Input, unsigned long long int Output) { //Way to input conversion result to history
     FILE *Pointer;
-    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/History_Conversion.txt", "a");
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "a");
     fprintf(Pointer, "Type   : %s\n", Type);
     fprintf(Pointer, "Input  : %lld\n", Input);
     fprintf(Pointer, "Output : %lld\n\n", Output);
     fclose(Pointer);
 }
 
-void historyIn_Simplification() { //Way to input simplification result to history
+void historyIn_Simplification(char Type[100], unsigned long long int Input, unsigned long long int Output) { //Way to input simplification result to history
     FILE *Pointer;
-    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/History_Simplification.txt", "a");
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Simplification.txt", "a");
+    fprintf(Pointer, "Type   : %s\n", Type);
+    fprintf(Pointer, "Input  : %lld\n", Input);
+    fprintf(Pointer, "Output : %lld\n\n", Output);
+    fclose(Pointer);
 }
 
 void historyDeletionMenu() { //Menu for deleting history
@@ -45,7 +51,7 @@ void historyDeletionMenu() { //Menu for deleting history
         } while ((inputYesNo != 'y') && (inputYesNo != 'Y') && (inputYesNo != 'n') && (inputYesNo != 'N'));
 
         if ((inputYesNo == 'y') || (inputYesNo == 'Y')) { //Delete function by opening with write function and closing
-            fclose(fopen("../Digital-Logic-Lazy-Caclulate/History_Conversion.txt", "w"));
+            fclose(fopen("../Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "w"));
             printf("History deleted!\n\n");
         }
         break;
@@ -57,7 +63,7 @@ void historyDeletionMenu() { //Menu for deleting history
         } while ((inputYesNo != 'y') && (inputYesNo != 'Y') && (inputYesNo != 'n') && (inputYesNo != 'N'));
 
         if ((inputYesNo == 'y') || (inputYesNo == 'Y')) { //Delete function by opening with write function and closing
-            fclose(fopen("../Digital-Logic-Lazy-Caclulate/History_Simplification.txt", "w"));
+            fclose(fopen("../Digital-Logic-Lazy-Caclulate/history/History_Simplification.txt", "w"));
             printf("\nHistory deleted!\n\n");
         }
 
@@ -92,7 +98,7 @@ void historyDisplayMenu() { //Display menu for history
 void historyDisplayConversion() {
     FILE *Pointer;
     char character;
-    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/History_Conversion.txt", "r");
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "r");
 
     if (Pointer == NULL) { //File missing, end reading
         printf("Unable to open history file!\n\n");
@@ -120,7 +126,7 @@ void historyDisplaySimplification () {
     FILE *Pointer;
     char character;
 
-    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/History_Simplification.txt", "r");
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Simplification.txt", "r");
 
     if (Pointer == NULL) { //File missing, end reading
         printf("Unable to open history file!\n\n");

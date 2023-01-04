@@ -40,7 +40,8 @@ int X2B()
 		printf("%d", Bin[k]);
 	printf("(%d位數)\n\n", i);
 
-
+	historyIn_Conversion("Hexadecimal to Binary", in, i); //Modify for history input
+	
 	//system("pause");
 	return 0;
 }

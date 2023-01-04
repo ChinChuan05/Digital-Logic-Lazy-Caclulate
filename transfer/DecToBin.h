@@ -29,7 +29,8 @@ int D2B()
 		printf("%d", Bin[k]);
 	printf("(%d位數)\n\n", i);
 
-
+	historyIn_Conversion("Decimal to Binary", s, i); //Modify for history input
+	
 	//system("pause");
 	return 0;
 }

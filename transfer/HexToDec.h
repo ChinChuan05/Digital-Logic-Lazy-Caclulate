@@ -27,6 +27,9 @@ int X2D()
 	sum = HexToDec(in, Dec,j);
 	
 	printf("%lld\n\n",sum);
+
+	historyIn_Conversion("Hexadecimal to Binary", in, sum); //Modify for history input
+
 	//system("pause");
 	return 0;
 }

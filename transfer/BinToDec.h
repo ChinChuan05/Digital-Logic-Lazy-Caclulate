@@ -19,6 +19,9 @@ int B2D()
 		printf("%d", Bin[j]);
 
 	printf("(%d位數)的十進制為%lld\n\n", i, sum);
+	
+	historyIn_Conversion("Binary to Decimal", i, sum); //Modify for history input
+	
 	//system("pause");
 	return 0;
 }
