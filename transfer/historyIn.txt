@@ -1,0 +1,29 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+void historyIn_ConversionB2D(char Type[100], char Input[64], unsigned long long int Output) { //Way to input conversion result to history
+    FILE *Pointer;
+    Pointer = fopen("../Bruh_tried_to/Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "a");
+	if (Pointer == NULL) {
+		printf("ERROR when inputting history\n");
+		fclose(Pointer);
+		return 0;
+	}
+    fprintf(Pointer, "Type   : %s\n", Type);
+    fprintf(Pointer, "Input  : %s\n", Input);
+    fprintf(Pointer, "Output : %lld\n\n", Output);
+    fclose(Pointer);
+    return 0;
+}
+
+
+
+void historyIn_Simplification(char Type[100], unsigned long long int Input, unsigned long long int Output) { //Way to input simplification result to history
+    FILE *Pointer;
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Simplification.txt", "a");
+    fprintf(Pointer, "Type   : %s\n", Type);
+    fprintf(Pointer, "Input  : %lld\n", Input);
+    fprintf(Pointer, "Output : %lld\n\n", Output);
+    fclose(Pointer);
+    return 0;
+}

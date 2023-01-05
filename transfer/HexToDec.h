@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+//#include "historyIn.h"
 
 const int table[16] = { 48,49,50,51,52,53,54,55,56,57,//0~9
 				65,66,67,68,69,70 };//A~F
@@ -28,7 +28,7 @@ int X2D()
 	
 	printf("%lld\n\n",sum);
 
-	historyIn_Conversion("Hexadecimal to Binary", in, sum); //Modify for history input
+	historyIn_ConversionX2D("Hexadecimal to Binary", in, sum); //Modify for history input
 
 	//system("pause");
 	return 0;
@@ -57,4 +57,19 @@ long long int HexToDec(char *in, int *Dec,int j)
 		s = s + *(Dec+i) * Pow(16, j - i - 1);
 
 	return s;
+}
+
+void historyIn_ConversionX2D(char Type[100], char Input[17], unsigned long long int Output) { //Way to input conversion result to history
+    FILE *Pointer;
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "a");
+	if (Pointer == NULL) {
+		printf("ERROR when inputting history\n");
+		fclose(Pointer);
+		return 0;
+	}
+    fprintf(Pointer, "Type   : %s\n", Type);
+    fprintf(Pointer, "Input  : %s\n", Input);
+    fprintf(Pointer, "Output : %lld\n\n", Output);
+    fclose(Pointer);
+    return 0;
 }

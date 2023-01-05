@@ -1,34 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+//Removed Input History header, instead put individually into function, due to different data types
+
 // Copy paste to main function
 // #include "../Digital-Logic-Lazy-Caclulate/history.h"
 
 //  Existing functions
-//historyIn_Conversion() - Put inside Conversion function, with format("Type of conversion", Input, Output)
-//historyIn_Simplification() - Put inside Conversion function, with format("Type", Input, Output)
 //historyDeletionMenu();
 //historyDisplayMenu();
 //historyDisplayConversion();
 //historyDisplaySimplification();
-
-void historyIn_Conversion(char Type[100], unsigned long long int Input, unsigned long long int Output) { //Way to input conversion result to history
-    FILE *Pointer;
-    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "a");
-    fprintf(Pointer, "Type   : %s\n", Type);
-    fprintf(Pointer, "Input  : %lld\n", Input);
-    fprintf(Pointer, "Output : %lld\n\n", Output);
-    fclose(Pointer);
-}
-
-void historyIn_Simplification(char Type[100], unsigned long long int Input, unsigned long long int Output) { //Way to input simplification result to history
-    FILE *Pointer;
-    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Simplification.txt", "a");
-    fprintf(Pointer, "Type   : %s\n", Type);
-    fprintf(Pointer, "Input  : %lld\n", Input);
-    fprintf(Pointer, "Output : %lld\n\n", Output);
-    fclose(Pointer);
-}
 
 void historyDeletionMenu() { //Menu for deleting history
     int input;
@@ -104,6 +86,7 @@ void historyDisplayConversion() {
         printf("Unable to open history file!\n\n");
         fclose(Pointer);
         system("pause");
+        return 0;
     }
 
     character = fgetc(Pointer);
@@ -120,6 +103,7 @@ void historyDisplayConversion() {
 
     printf("\n");
     fclose(Pointer);
+    return 0;
 }
 
 void historyDisplaySimplification () {
@@ -131,12 +115,15 @@ void historyDisplaySimplification () {
     if (Pointer == NULL) { //File missing, end reading
         printf("Unable to open history file!\n\n");
         fclose(Pointer);
+        system("pause");
+        return 0;
     }
 
     character = fgetc(Pointer);
     if (character == EOF) { //File is empty, end reading
         printf("History is empty!\n\n");
         fclose(Pointer);
+        system("pause");
     }
 
     while (character != EOF) { //Print whole file
@@ -146,5 +133,5 @@ void historyDisplaySimplification () {
 
     printf("\n");
     fclose(Pointer);
-
+    return 0;
 }

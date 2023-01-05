@@ -7,4 +7,4 @@
 #include "./transfer/HexToDec.h"
 #include "./transfer/HexToBin.h"
 #include "./transfer/BinToDec.h"
-//#include "./history/history.h"
+#include "./history/history.h"

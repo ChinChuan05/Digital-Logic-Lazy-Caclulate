@@ -20,7 +20,7 @@ int B2D()
 
 	printf("(%d位數)的十進制為%lld\n\n", i, sum);
 	
-	historyIn_Conversion("Binary to Decimal", i, sum); //Modify for history input
+	//historyIn_ConversionB2D("Binary to Decimal", temp, sum); //Modify for history input
 	
 	//system("pause");
 	return 0;
@@ -53,4 +53,19 @@ unsigned long long int BinToDec(int* B, char* t, int* i)
 			if(*(B + j) == 1)
 				sum = sum + Pow__(2, 63 - j);
 	return sum;
+}
+
+void historyIn_ConversionB2D(char Type[100], char Input[64], unsigned long long int Output) { //Way to input conversion result to history
+    FILE *Pointer;
+    Pointer = fopen("../Digital-Logic-Lazy-Caclulate/history/History_Conversion.txt", "a");
+	if (Pointer == NULL) {
+		printf("ERROR when inputting history\n");
+		fclose(Pointer);
+		return 0;
+	}
+    fprintf(Pointer, "Type   : %s\n", Type);
+    fprintf(Pointer, "Input  : %s\n", Input);
+    fprintf(Pointer, "Output : %lld\n\n", Output);
+    fclose(Pointer);
+    return 0;
 }

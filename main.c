@@ -1,6 +1,6 @@
 #include "include.h"
 
-int select = 0, type = 0, num;
+int select = 0, type = 0, num, select1 = 0;
 char operand[6][5] = {{"and"}, {"or"}, {"nand"}, {"nor"}, {"xor"}, {"nxor"}};
 
 int main(){
@@ -50,6 +50,20 @@ int main(){
                         break;
                 }
                 break;
+
+            case 4:
+                printf("Please input to access: (1)Display History (2)Delete History");
+                scanf("%d", &select1);
+
+                switch(select1) {
+                    case 1:
+                        historyDisplayMenu();
+                        break;
+
+                    case 2:
+                        historyeDeletionMenu();
+                        break;
+                }
         }
     }
 }
